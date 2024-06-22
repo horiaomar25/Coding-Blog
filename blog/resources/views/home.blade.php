@@ -15,7 +15,7 @@
 
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
-      Launch demo modal
+      Create a Post +
     </button>
   </nav>
 
