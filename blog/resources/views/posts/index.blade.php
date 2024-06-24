@@ -54,11 +54,12 @@
             <div class="col-md-4 mb-4">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $post->title }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">{{ $post->content }}</p>
+                        <h2 class="card-title">{{ $post->title }}</h2>
+                        <h6 class="card-subtitle mb-2 text-muted"></h6>
+                        <p class="card-text">
+                            {{ Str::limit(strip_tags($post->content), 100, '...') }}
+                        </p>
                         <a href="{{ route('posts.show', $post->id) }}" class="card-link">Read More</a>
-                        
                     </div>
                 </div>
             </div>
