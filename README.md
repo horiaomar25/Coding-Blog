@@ -31,7 +31,8 @@ From this project I learnt:
 
 ## Further Improvement
 
-Implementing advanced features like user comments, categories, or tags for blog posts.
-Enhancing the frontend design and user interface.
-Optimizing database queries and performance.
-Adding more robust error handling and validation.
+- Implementing advanced features like user comments, 
+- categories, or tags for blog posts.
+- Enhancing the frontend design and user interface.
+- Optimizing database queries and performance.
+- Adding more robust error handling and validation.
