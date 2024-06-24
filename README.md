@@ -1,5 +1,5 @@
 # 100DaysOfCode Blog Site
-[Link](https://bootcamp.laravel.com/) to demo of PHP project
+[Link]([https://bootcamp.laravel.com/](https://youtu.be/MWboqTa30a4)) to video demo of PHP project
 
 ## Overview
 This project is a CRUD (Create, Read, Update, Delete) application developed using Laravel and MySQL. It serves as a blog site specifically designed for participants of the #100DaysOfCode challenge.
