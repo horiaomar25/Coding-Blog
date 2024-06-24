@@ -11,10 +11,10 @@ Update: Users can edit and update their blog posts.
 Delete: Users can delete their blog posts.
 
 ## Technology
-Backend: Laravel
-Database: MySQL
-FrontEnd: HTML, CSS (Bootstrap)
-Others: PHP, Blade 
+- Backend: Laravel
+- Database: MySQL
+- FrontEnd: HTML, CSS (Bootstrap)
+- Others: PHP, Blade 
 
 ## What I learnt
 Continuing from my learning of the ToDo List which I did for the Laravel Bootcamp, this project reienforced the knowledge I gained from that project.
