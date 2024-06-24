@@ -1,3 +1,4 @@
+<!-- resources/views/posts/show.blade.php -->
 <!doctype html>
 <html lang="en">
 
@@ -15,8 +16,18 @@
         <div class="card">
           <div class="card-body">
             <h1 class="card-title">{{ $post->title }}</h1>
-            <p class="card-text">{{ $post->content }}</p>
+            <div class="card-text">
+              {!! nl2br(e($post->content)) !!}
+            </div>
             <a href="{{ route('posts.index') }}" class="btn btn-primary">Back to Posts</a>
+            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-success">Edit</a>
+
+            <!-- Delete Form -->
+            <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="d-inline">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
+            </form>
           </div>
         </div>
       </div>
@@ -27,3 +38,4 @@
 </body>
 
 </html>
+
