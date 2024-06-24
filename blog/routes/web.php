@@ -7,6 +7,4 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::resource('post', PostController::class)
-    ->only(['index', 'store']);
- 
+

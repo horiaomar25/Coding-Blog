@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
-use App\Models\Post; 
-use Illuminate\Http\Response; 
 
 class PostController extends Controller
 {
-    public function index(): Response 
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
         //
-        return response('Hello, World!');
     }
-
-
 
     /**
      * Show the form for creating a new resource.
