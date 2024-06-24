@@ -1,4 +1,3 @@
-<!-- resources/views/posts/show.blade.php -->
 <!doctype html>
 <html lang="en">
 
@@ -19,15 +18,17 @@
             <div class="card-text">
               {!! nl2br(e($post->content)) !!}
             </div>
-            <a href="{{ route('posts.index') }}" class="btn btn-primary">Back to Posts</a>
-            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-success">Edit</a>
+            <div class="mt-3"> <!-- Add margin top here -->
+              <a href="{{ route('posts.index') }}" class="btn btn-primary me-2">Back to Posts</a> <!-- Add margin right to the left button -->
+              <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-success me-2">Edit</a> <!-- Add margin right to the right button -->
 
-            <!-- Delete Form -->
-            <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="d-inline">
-              @csrf
-              @method('DELETE')
-              <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
-            </form>
+              <!-- Delete Form -->
+              <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="d-inline">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -38,4 +39,5 @@
 </body>
 
 </html>
+
 
