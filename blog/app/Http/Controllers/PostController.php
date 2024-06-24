@@ -4,23 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
+    public function index(): View
+{
+    $posts = Post::latest()->paginate(9);
+
+    return view('posts.index', compact('posts'));
+}
+
+    
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -28,7 +33,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validate the input
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required'
+        ]);
+    
+        Post::create($request->all());
+    
+        return redirect()->route('posts.index')->with('success', 'Post created Successfully');
     }
 
     /**
@@ -36,7 +49,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('posts.show', compact('post'));
     }
 
     /**
