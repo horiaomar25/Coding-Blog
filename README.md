@@ -17,15 +17,17 @@ FrontEnd: HTML, CSS (Bootstrap)
 Others: PHP, Blade 
 
 ## What I learnt
-As a first-time user of Laravel, developing this project taught me several key concepts and skills:
+Continuing from my learning of the ToDo List which I did for the Laravel Bootcamp, this project reienforced the knowledge I gained from that project.
 
-Routing: Understanding and defining routes for different CRUD operations.
-Controllers: Creating controllers to handle business logic and interactions with models.
-Views: Using Blade templating engine to create dynamic and reusable views.
-Database Management: Working with migrations and seeders to set up and populate the database.
-Authentication: Implementing basic authentication features for user management.
-Form Handling: Validating user input and handling form submissions securely.
-Deployment: Basic steps for deploying a Laravel application to a web server.
+From this project I learnt:
+
+- Routing: Understanding and defining routes for different CRUD operations.
+- Controllers: Creating controllers to handle business logic and interactions with models.
+- Views: Using Blade templating engine to create dynamic and reusable views.
+- Database Management: Working with migrations and seeders to set up and populate the database.
+- Authentication: Implementing basic authentication features for user management.
+- Form Handling: Validating user input and handling form submissions securely.
+
 
 ## Further Improvement
 
