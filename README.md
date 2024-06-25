@@ -5,10 +5,10 @@
 This project is a CRUD (Create, Read, Update, Delete) application developed using Laravel and MySQL. It serves as a blog site specifically designed for participants of the #100DaysOfCode challenge.
 
 ## Features
-Create: Users can create new blog posts.
-Read: Users can view existing blog posts.
-Update: Users can edit and update their blog posts.
-Delete: Users can delete their blog posts.
+- Create: Users can create new blog posts.
+- Read: Users can view existing blog posts.
+- Update: Users can edit and update their blog posts.
+- Delete: Users can delete their blog posts.
 
 ## Technology
 - Backend: Laravel
