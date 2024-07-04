@@ -1,79 +1,37 @@
-<!doctype html>
-<html lang="en">
+@extends('layouts.layout')
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>#100DaysOfCode</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <style>
-    .navbar .btn-create-post {
-      margin-left: 10px; /* Adjust as needed */
-      margin-right: 10px; /* Adjust as needed */
-    }
-  </style>
-</head>
+@section('title', '100 Days Of Code')
 
-<body>
-  <!-- As a heading -->
-  <nav class="navbar navbar-light bg-light border border-black">
-    <span class="navbar-brand mb-0 h1 p-2">#100DaysOfCode</span>
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary btn-create-post" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
-      Create a Post +
-    </button>
-  </nav>
-
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Create a Post</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="{{ route('posts.store') }}" method="POST">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="postTitle" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="postTitle" name="title" placeholder="Title of post" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="postContent" class="form-label">Content</label>
-                        <textarea class="form-control" id="postContent" name="content" rows="3" required>{{ old('content') }}</textarea>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">{{ __('Post') }}</button>
-                    </div>
-                </form>
-            </div>
+@section('content')
+    <form action="{{ route('posts.store') }}" method="POST">
+        @csrf
+        <div class="mb-3">
+            <label for="postTitle" class="form-label">Title</label>
+            <input type="text" class="form-control" id="postTitle" name="title" placeholder="Title of post" required>
         </div>
-    </div>
-</div>
+        <div class="mb-3">
+            <label for="postContent" class="form-label">Content</label>
+            <textarea class="form-control" id="postContent" name="content" rows="3" required>{{ old('content') }}</textarea>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">{{ __('Post') }}</button>
+        </div>
+    </form>
+@endsection
 
-<div class="container mt-4">
-    <div class="row">
+@section('posts')
+    <div class="row mt-4">
         @foreach ($posts as $post)
             <div class="col-md-4 mb-4">
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <div class="card-body">
-                        <h2 class="card-title">{{ $post->title }}</h2>
-                        <h6 class="card-subtitle mb-2 text-muted"></h6>
-                        <p class="card-text">
-                            {{ Str::limit(strip_tags($post->content), 100, '...') }}
-                        </p>
-                        <a href="{{ route('posts.show', $post->id) }}" class="card-link">Read More</a>
+                        <h5 class="card-title">{{ $post->title }}</h5>
+                        <p class="card-text">{{ Str::limit(strip_tags($post->content), 100, '...') }}</p>
+                        <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
             </div>
         @endforeach
     </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-
-</html>
+@endsection
