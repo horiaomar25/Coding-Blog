@@ -11,6 +11,16 @@
             margin-left: 10px; /* Adjust as needed */
             margin-right: 10px; /* Adjust as needed */
         }
+        body {
+            background-color: #f8f9fa; /* Light gray background for the entire body */
+        }
+        .header-section {
+            position: relative;
+            padding: 60px 0; /* Adjust padding as needed */
+            text-align: center;
+            background: rgb(255,255,255);
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(217,50,32,0.8912158613445378) 0%, rgba(215,120,249,1) 100%);
+        }
     </style>
 </head>
 

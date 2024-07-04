@@ -33,16 +33,33 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        // validate the input
+        // Validate the request
         $request->validate([
-            'title' => 'required',
-            'content' => 'required'
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate image type and size
         ]);
-    
-        Post::create($request->all());
-    
-        return redirect()->route('posts.index')->with('success', 'Post created Successfully');
+
+        // Create a new post record
+        $post = new Post();
+        $post->title = $request->title;
+        $post->content = $request->content;
+
+        // Handle image upload if present
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->storeAs('public/images', $imageName); // Store image in storage/app/public/images
+            $post->image = $imageName;
+        }
+
+        $post->save();
+
+        // Optionally, you can use route('posts.index') if you have named routes
+        return redirect()->route('posts.index')->with('success', 'Post created successfully!');
     }
+
+    
 
     /**
      * Display the specified resource.

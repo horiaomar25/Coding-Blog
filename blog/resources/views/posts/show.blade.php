@@ -15,12 +15,17 @@
         <div class="card">
           <div class="card-body">
             <h1 class="card-title">{{ $post->title }}</h1>
+            
+            @if ($post->image)
+              <img src="{{ asset('storage/images/' . $post->image) }}" class="img-fluid mb-3" alt="Post Image">
+            @endif
+            
             <div class="card-text">
               {!! nl2br(e($post->content)) !!}
             </div>
-            <div class="mt-3"> <!-- Add margin top here -->
-              <a href="{{ route('posts.index') }}" class="btn btn-primary me-2">Back to Posts</a> <!-- Add margin right to the left button -->
-              <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-success me-2">Edit</a> <!-- Add margin right to the right button -->
+            <div class="mt-3">
+              <a href="{{ route('posts.index') }}" class="btn btn-primary me-2">Back to Posts</a>
+              <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-success me-2">Edit</a>
 
               <!-- Delete Form -->
               <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="d-inline">

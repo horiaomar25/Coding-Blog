@@ -1,33 +1,39 @@
 @extends('layouts.layout')
 
-@section('title', '100 Days Of Code')
+@section('title', 'My Blog Posts')
 
 @section('content')
-    <form action="{{ route('posts.store') }}" method="POST">
+    <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="mb-3">
-            <label for="postTitle" class="form-label">Title</label>
-            <input type="text" class="form-control" id="postTitle" name="title" placeholder="Title of post" required>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title">
         </div>
-        <div class="mb-3">
-            <label for="postContent" class="form-label">Content</label>
-            <textarea class="form-control" id="postContent" name="content" rows="3" required>{{ old('content') }}</textarea>
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea class="form-control" id="content" name="content"></textarea>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">{{ __('Post') }}</button>
+        <div class="form-group mt-4">
+            <label for="image">Image</label>
+            <input type="file" class="form-control-file mb-3" id="image" name="image">
         </div>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
     </form>
 @endsection
 
 @section('posts')
-    <div class="row mt-4">
+    <div class="row">
         @foreach ($posts as $post)
             <div class="col-md-4 mb-4">
-                <div class="card">
+                <div class="card" style="width: 18rem;">
+                    @if ($post->image)
+                    <img src="{{ asset('storage/images/' . $post->image) }}" class="card-img-top" alt="Post Image" style="width: 300px; height: 200px;">
+
+
+                    @endif
                     <div class="card-body">
                         <h5 class="card-title">{{ $post->title }}</h5>
-                        <p class="card-text">{{ Str::limit(strip_tags($post->content), 100, '...') }}</p>
+                        <p class="card-text">{{ $post->content }}</p>
                         <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
@@ -35,3 +41,8 @@
         @endforeach
     </div>
 @endsection
+
+
+
+
+
