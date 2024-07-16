@@ -9,6 +9,14 @@
 </head>
 
 <body>
+
+<nav class="navbar navbar-light  p-4">
+        <span class="navbar-brand mb-0 h1 p-2">#100DaysOfCode</span>
+        <button type="button" class="btn btn-primary btn-create-post" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+            Create a Post +
+        </button>
+    </nav>
+
   <div class="container mt-4">
     <div class="row">
       <div class="col-md-12">
@@ -16,10 +24,11 @@
           <div class="card-body">
             <h1 class="card-title">{{ $post->title }}</h1>
             
+            <div class="d-flex justify-content-center">
             @if ($post->image)
-              <img src="{{ asset('storage/images/' . $post->image) }}" class="img-fluid mb-3" alt="Post Image">
+              <img src="{{ asset('storage/images/' . $post->image) }}" class="img-fluid mb-3" style="max-width: 500px;" alt="Post Image">
             @endif
-            
+            </div>
             <div class="card-text">
               {!! nl2br(e($post->content)) !!}
             </div>
@@ -44,5 +53,4 @@
 </body>
 
 </html>
-
 

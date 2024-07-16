@@ -22,25 +22,36 @@
 @endsection
 
 @section('posts')
-    <div class="row">
-        @foreach ($posts as $post)
-            <div class="col-md-4 mb-4">
-                <div class="card" style="width: 18rem;">
-                    @if ($post->image)
-                    <img src="{{ asset('storage/images/' . $post->image) }}" class="card-img-top" alt="Post Image" style="width: 300px; height: 200px;">
-
-
-                    @endif
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $post->title }}</h5>
-                        <p class="card-text">{{ $post->content }}</p>
-                        <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">Read More</a>
-                    </div>
+<div class="card">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+<div class="row">
+    @foreach ($posts as $post)
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                @if ($post->image)
+                    <img src="{{ asset('storage/images/' . $post->image) }}" class="card-img-top" alt="Post Image">
+                @endif
+                <div class="card-body">
+                    <h5 class="card-title">{{ $post->title }}</h5>
+                    <p class="card-text">{{ Str::limit($post->content, 100, '...') }}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">Read More</a>
                 </div>
             </div>
-        @endforeach
-    </div>
+        </div>
+    @endforeach
+</div>
 @endsection
+
 
 
 
