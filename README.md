@@ -25,7 +25,6 @@ From this project I learnt:
 - Controllers: Creating controllers to handle business logic and interactions with models.
 - Views: Using Blade templating engine to create dynamic and reusable views.
 - Database Management: Working with migrations and seeders to set up and populate the database.
-- Authentication: Implementing basic authentication features for user management.
 - Form Handling: Validating user input and handling form submissions securely.
 
 
